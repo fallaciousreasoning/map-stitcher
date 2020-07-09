@@ -5,7 +5,7 @@ from tile_iterator import iterate_tiles
 
 output_folder = "tiles"
 if not os.path.exists(output_folder):
-    os.mkdir(output_folder)
+    os.makedirs(output_folder)
 
 url_base = "https://a.tile.opentopomap.org/%s/%s/%s.png"
 def download_tile(point: Point):
