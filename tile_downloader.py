@@ -19,12 +19,8 @@ def download_tile(point: Point):
     with open(point.filename(), 'wb') as f:
         f.write(response.content)
 
-def download_tiles(min_coord: LatLng, max_coord: LatLng, zoom: int):
-    iterator = iterate_tiles(min_coord, max_coord, zoom)
+def download_tiles(min_point: Point, max_point: Point):
+    iterator = iterate_tiles(min_point, max_point)
 
     for tile in iterator:
         download_tile(tile)
-
-min_coord = LatLng(-33.508538, 151.192571)
-max_coord = LatLng(-33.677381, 151.341555)
-download_tiles(min_coord, max_coord, 14)
