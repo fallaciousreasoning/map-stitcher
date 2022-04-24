@@ -1,2 +1,2 @@
-argparse == 3.2
+argparse == 3.9.12
 Pillow == 7.2.0
