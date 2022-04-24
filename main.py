@@ -19,8 +19,8 @@ parser.add_argument('--zoom', type=int, default=14)
 parser.add_argument('--output-file', default="output/result.png", help="The file to write the resulting image to.")
 
 def main(min_coord, max_coord, zoom, output_file):
-    min_coord = LatLng(-33.508538, 151.192571)
-    max_coord = LatLng(-33.677381, 151.341555)
+    min_coord = min_coord
+    max_coord = max_coord
 
     min_point = latlng_to_slippy(min_coord, zoom)
     max_point = latlng_to_slippy(max_coord, zoom)
@@ -31,7 +31,7 @@ def main(min_coord, max_coord, zoom, output_file):
 if __name__ == "__main__":
     options = parser.parse_args()
 
-    coords = options.coords.split(',')
+    coords = [float(x) for x in options.coords.split(',')]
     min_coord = LatLng(coords[0], coords[1])
     max_coord = LatLng(coords[2], coords[3])
 
