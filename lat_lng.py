@@ -12,8 +12,8 @@ class Point:
     def get_url(self, format_url):
         return format_url % (self.zoom, self.x, self.y)
 
-    def filename(self, output_folder="tiles"):
-        return f'{output_folder}/{self.zoom}_{self.x}_{self.y}.png'
+    def filename(self, source: str):
+        return f'tiles/{source}/{self.zoom}_{self.x}_{self.y}.png'
 
     def __repr__(self):
         return f'Point(x={self.x}, y={self.y}, zoom={self.zoom})'
