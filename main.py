@@ -33,7 +33,7 @@ if __name__ == "__main__":
     options = parser.parse_args()
 
     coords = [float(x) for x in options.coords.split(',')]
-    min_coord = LatLng(coords[0], coords[1])
-    max_coord = LatLng(coords[2], coords[3])
+    min_coord = LatLng(max(coords[0], coords[2]), min(coords[1], coords[3]))
+    max_coord = LatLng(min(coords[0], coords[2]), max(coords[1], coords[3]))
 
     main(min_coord, max_coord, options.zoom, options.output_file, options.source)
